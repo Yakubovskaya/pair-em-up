@@ -3,6 +3,7 @@ const renderStartScreen = () => {
   container.classList.add('start-screen');
 
   const title = document.createElement('h1');
+  title.classList.add('title');
   title.textContent = "Pair 'em Up";
 
   const modes = ['Classic', 'Random', 'Chaotic'];
@@ -11,6 +12,7 @@ const renderStartScreen = () => {
 
   modes.forEach((mode) => {
     const btn = document.createElement('button');
+    btn.classList.add('button');
     btn.type = 'button';
     btn.textContent = mode;
     buttonsWrapper.append(btn);
@@ -21,6 +23,7 @@ const renderStartScreen = () => {
 
   ['Settings', 'Results'].forEach((text) => {
     const btn = document.createElement('button');
+    btn.classList.add('button');
     btn.type = 'button';
     btn.textContent = text;
     extraButtonsWrapper.append(btn);
@@ -33,6 +36,7 @@ const renderStartScreen = () => {
   githubLabel.textContent = 'GitHub:';
 
   const githubLink = document.createElement('a');
+  githubLink.classList.add('github-link');
   githubLink.href = 'https://github.com/Yakubovskaya';
   githubLink.target = '_blank';
   githubLink.textContent = '@Yakubovskaya';
