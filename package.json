@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "commitmsg": "commitlint --edit $1",
-    "precommit": "lint-staged",
+    "commitmsg": "npx commitlint --edit $1",
+    "precommit": "npx lint-staged",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -27,7 +27,10 @@
     "vite": "^7.2.2"
   },
   "lint-staged": {
-    "*.js": "eslint . --fix",
-    "*.{js,scss,html}": "prettier --write"
+    "*.js": [
+      "npx eslint . --fix",
+      "npx prettier --write"
+    ],
+    "*.{scss,html}": "npx prettier --write"
   }
 }
