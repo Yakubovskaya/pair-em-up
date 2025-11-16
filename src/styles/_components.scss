@@ -110,6 +110,23 @@
   color: #ffffff;
   cursor: pointer;
 
+  &--selected {
+    background: rgba(100, 200, 255, 0.6);
+    border-color: #71cdff;
+    transform: scale(1.1);
+  }
+
+  &--empty {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    cursor: default;
+  }
+
+  &--invalid {
+    background: #f44336b3;
+    border-color: #f44336;
+  }
+
   @media (max-width: 480px) {
     border-radius: 5px;
   }

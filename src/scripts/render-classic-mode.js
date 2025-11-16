@@ -3,6 +3,7 @@ import {
   placeClassicNumbers,
   initializeGrid,
 } from './create-grid.js';
+import { onCellClick } from './cell-selection-handler.js';
 
 let classicData = {
   rows: 3,
@@ -23,6 +24,9 @@ const renderClassicGrid = (container) => {
 
       const number = classicData.grid[y][x];
       cell.textContent = number;
+      cell.addEventListener('click', () => {
+        onCellClick(cell, x, y, number);
+      });
       container.appendChild(cell);
     }
   }
