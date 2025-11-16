@@ -68,3 +68,49 @@
     color: #026285;
   }
 }
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.game__title {
+  font-size: clamp(18px, 4.5vw, 24px);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.game__grid-container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 2px;
+  padding: clamp(13px, 2vw, 20px);
+  width: 100%;
+  max-width: 540px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.game__grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  font-size: clamp(12px, 3vw, 18px);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+
+  @media (max-width: 480px) {
+    border-radius: 5px;
+  }
+}

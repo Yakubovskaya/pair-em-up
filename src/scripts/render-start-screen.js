@@ -1,3 +1,5 @@
+import { onClassicButtonClick } from './start-classic-game.js';
+
 const renderStartScreen = () => {
   const container = document.createElement('div');
   container.classList.add('start-screen');
@@ -15,6 +17,9 @@ const renderStartScreen = () => {
     btn.classList.add('button');
     btn.type = 'button';
     btn.textContent = mode;
+    if (mode === 'Classic') {
+      btn.addEventListener('click', onClassicButtonClick);
+    }
     buttonsWrapper.append(btn);
   });
 
