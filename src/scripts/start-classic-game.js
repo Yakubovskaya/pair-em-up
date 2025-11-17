@@ -1,5 +1,5 @@
 import { createClassicGrid, renderClassicGrid } from './render-classic-mode.js';
-import { updateScoreDisplay } from './score.js';
+import { resetScore, updateScoreDisplay } from './score.js';
 
 const onClassicButtonClick = () => {
   startClassicGame();
@@ -11,7 +11,7 @@ const startClassicGame = () => {
     startScreen.classList.add('hidden');
   }
 
-  const existingGame = document.querySelector('.game-container');
+  const existingGame = document.querySelector('.game');
   if (existingGame) {
     existingGame.remove();
   }
@@ -58,6 +58,10 @@ const startClassicGame = () => {
   const resetButton = document.createElement('button');
   resetButton.classList.add('control-button', 'button');
   resetButton.textContent = 'Reset';
+  resetButton.addEventListener('click', () => {
+    startClassicGame();
+    resetScore();
+  });
 
   const saveButton = document.createElement('button');
   saveButton.classList.add('control-button', 'button');
