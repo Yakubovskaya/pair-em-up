@@ -34,4 +34,13 @@ const updateScoreDisplay = () => {
   maxScoreElement.textContent = maxScore;
 };
 
-export { calculatePoints, addPoints, updateScoreDisplay };
+const checkWin = () => {
+  return currentScore >= maxScore;
+};
+
+const resetScore = () => {
+  currentScore = 0;
+  updateScoreDisplay();
+};
+
+export { calculatePoints, addPoints, updateScoreDisplay, checkWin, resetScore };

@@ -1,4 +1,5 @@
-import { calculatePoints, addPoints } from './score';
+import { calculatePoints, addPoints, checkWin } from './score';
+import { renderWinScreen } from './render-win-screen';
 
 let selectedCells = [];
 
@@ -129,7 +130,12 @@ const checkPairs = (cols) => {
   }
 
   const points = calculatePoints(firstCell, secondCell);
-  addPoints(points);
+  const maxScore = addPoints(points);
+  const isWin = checkWin();
+
+  if (isWin) {
+    renderWinScreen(maxScore);
+  }
 
   removeMatchedCells();
   clearSelection();

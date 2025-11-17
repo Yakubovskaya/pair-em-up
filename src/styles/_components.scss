@@ -148,3 +148,40 @@
     border-radius: 5px;
   }
 }
+
+.win-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+.win-screen__title {
+  font-size: clamp(32px, 7vw, 48px);
+  font-weight: 700;
+  color: #4caf50;
+  text-align: center;
+  margin: 0;
+}
+
+.win-screen__message {
+  font-size: clamp(18px, 4vw, 24px);
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+}
+
+.win-screen__button {
+  min-width: 200px;
+  padding: 15px 30px;
+  font-size: clamp(16px, 3vw, 20px);
+}

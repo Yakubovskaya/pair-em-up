@@ -8,7 +8,7 @@ const onClassicButtonClick = () => {
 const startClassicGame = () => {
   const startScreen = document.querySelector('.start-screen');
   if (startScreen) {
-    startScreen.style.display = 'none';
+    startScreen.classList.add('hidden');
   }
 
   const existingGame = document.querySelector('.game-container');
