@@ -7,7 +7,7 @@
     "prepare": "husky",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "commitmsg": "npx commitlint --edit $1",
+    "commitmsg": "npx commitlint --edit",
     "precommit": "npx lint-staged",
     "dev": "vite",
     "build": "vite build",
