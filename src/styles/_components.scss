@@ -85,6 +85,23 @@
   color: #ffffff;
 }
 
+.game__score-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.game__score-value {
+  color: #88d48a;
+}
+
+.game__max-value {
+  color: #ff9800;
+}
+
 .game__grid-container {
   display: grid;
   grid-template-columns: repeat(9, 1fr);

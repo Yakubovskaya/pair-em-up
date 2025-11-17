@@ -1,3 +1,5 @@
+import { calculatePoints, addPoints } from './score';
+
 let selectedCells = [];
 
 const onCellClick = (cellElement, x, y, number) => {
@@ -125,6 +127,9 @@ const checkPairs = (cols) => {
     clearSelection();
     return;
   }
+
+  const points = calculatePoints(firstCell, secondCell);
+  addPoints(points);
 
   removeMatchedCells();
   clearSelection();
