@@ -1,5 +1,5 @@
 let currentScore = 0;
-const maxScore = 100;
+const maxScore = 5;
 
 const calculatePoints = (firstCell, secondCell) => {
   const num1 = firstCell.number;

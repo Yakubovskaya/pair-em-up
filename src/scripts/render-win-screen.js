@@ -1,6 +1,7 @@
 import { resetScore } from './score';
+import { startClassicGame } from './start-classic-game';
 
-const renderWinScreen = (maxScore) => {
+const renderWinScreen = (maxScore, time) => {
   const gameContainer = document.querySelector('.game');
   if (gameContainer) {
     gameContainer.classList.add('hidden');
@@ -17,13 +18,16 @@ const renderWinScreen = (maxScore) => {
   winMessage.classList.add('win-screen__message');
   winMessage.textContent = `Congratulations! You reached ${maxScore} points!`;
 
+  const winTime = document.createElement('p');
+  winTime.classList.add('win-screen__time');
+  winTime.textContent = time;
+
   const playAgainButton = document.createElement('button');
   playAgainButton.classList.add('win-screen__button', 'button');
   playAgainButton.textContent = 'Play Again';
   playAgainButton.addEventListener('click', () => {
     winScreen.remove();
-    gameContainer.classList.remove('hidden');
-    resetScore();
+    startClassicGame();
   });
 
   const menuButton = document.createElement('button');
@@ -43,6 +47,7 @@ const renderWinScreen = (maxScore) => {
 
   winScreen.appendChild(winTitle);
   winScreen.appendChild(winMessage);
+  winScreen.appendChild(winTime);
   winScreen.appendChild(playAgainButton);
   winScreen.appendChild(menuButton);
 

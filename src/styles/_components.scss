@@ -112,6 +112,21 @@
   color: #ff9800;
 }
 
+.game__timer-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.game__timer-value {
+  color: #ff9800;
+  opacity: 0.7;
+}
+
 .game__content-wrapper {
   display: flex;
   align-items: flex-start;
@@ -256,6 +271,14 @@
   color: #ffffff;
   text-align: center;
   margin: 0;
+}
+
+.win-screen__time {
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 700;
+  color: #ff9800;
 }
 
 .win-screen__button {

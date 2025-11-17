@@ -1,5 +1,6 @@
 import { createClassicGrid, renderClassicGrid } from './render-classic-mode.js';
 import { resetScore, updateScoreDisplay } from './score.js';
+import { resetTimer, startTimer } from './timer.js';
 
 const onClassicButtonClick = () => {
   startClassicGame();
@@ -47,6 +48,20 @@ const startClassicGame = () => {
   scoreContainer.appendChild(maxLabel);
   scoreContainer.appendChild(maxValue);
 
+  const timerContainer = document.createElement('div');
+  timerContainer.classList.add('game__timer-container');
+
+  const timerLabel = document.createElement('span');
+  timerLabel.classList.add('game__timer-label');
+  timerLabel.textContent = 'Time:';
+
+  const timerValue = document.createElement('span');
+  timerValue.classList.add('game__timer-value');
+  timerValue.textContent = '00:00';
+
+  timerContainer.appendChild(timerLabel);
+  timerContainer.appendChild(timerValue);
+
   const controlButtonsContainer = document.createElement('div');
   controlButtonsContainer.classList.add('game__control-buttons');
 
@@ -60,7 +75,6 @@ const startClassicGame = () => {
   resetButton.textContent = 'Reset';
   resetButton.addEventListener('click', () => {
     startClassicGame();
-    resetScore();
   });
 
   const saveButton = document.createElement('button');
@@ -117,10 +131,15 @@ const startClassicGame = () => {
 
   gameContainer.appendChild(gameTitle);
   gameContainer.appendChild(scoreContainer);
+  gameContainer.appendChild(timerContainer);
   gameContainer.appendChild(settingsButton);
   gameContainer.appendChild(gameContentWrapper);
 
   document.body.appendChild(gameContainer);
+
+  resetScore();
+  resetTimer();
+  startTimer();
 
   updateScoreDisplay();
 
@@ -128,4 +147,4 @@ const startClassicGame = () => {
   renderClassicGrid(gameGridContainer);
 };
 
-export { onClassicButtonClick };
+export { startClassicGame, onClassicButtonClick };
