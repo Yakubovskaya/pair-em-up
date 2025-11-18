@@ -31,7 +31,9 @@ const onCellClick = (cellElement, x, y, number) => {
 
   if (selectedCells.length === 2) {
     const cols = 9;
-    checkPairs(cols);
+    setTimeout(() => {
+      checkPairs(cols);
+    }, 500);
   }
 };
 
