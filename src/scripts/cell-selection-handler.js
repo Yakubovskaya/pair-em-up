@@ -1,6 +1,7 @@
 import { calculatePoints, addPoints, checkWin } from './score';
 import { renderWinScreen } from './render-win-screen';
 import { getTime, stopTimer } from './timer';
+import { playSuccessSound, playFailSound } from './sound-effects.js';
 
 let selectedCells = [];
 
@@ -121,16 +122,20 @@ const checkPairs = (cols) => {
   const [firstCell, secondCell] = selectedCells;
 
   if (!areCellsNeighbors(firstCell, secondCell, cols)) {
+    playFailSound();
     showInvalidFeedback();
     clearSelection();
     return;
   }
 
   if (!isValidPair(firstCell, secondCell)) {
+    playFailSound();
     showInvalidFeedback();
     clearSelection();
     return;
   }
+
+  playSuccessSound();
 
   const points = calculatePoints(firstCell, secondCell);
   const maxScore = addPoints(points);
