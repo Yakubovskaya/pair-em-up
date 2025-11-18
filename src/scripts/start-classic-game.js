@@ -1,6 +1,7 @@
 import { createClassicGrid, renderClassicGrid } from './render-classic-mode.js';
 import { resetScore, updateScoreDisplay } from './score.js';
 import { resetTimer, startTimer } from './timer.js';
+import { useEraser, resetEraser } from './eraser.js';
 
 const onClassicButtonClick = () => {
   startClassicGame();
@@ -111,7 +112,17 @@ const startClassicGame = () => {
 
   const eraserButton = document.createElement('button');
   eraserButton.classList.add('assist-button', 'button');
+  eraserButton.setAttribute('data-tool', 'eraser');
   eraserButton.textContent = 'Eraser';
+
+  const eraserCounter = document.createElement('span');
+  eraserCounter.classList.add('assist-button__counter');
+  eraserCounter.textContent = '5';
+
+  eraserButton.appendChild(eraserCounter);
+  eraserButton.addEventListener('click', () => {
+    useEraser();
+  });
 
   assistButtonsContainer.appendChild(revertButton);
   assistButtonsContainer.appendChild(hintsButton);
@@ -139,6 +150,7 @@ const startClassicGame = () => {
 
   resetScore();
   resetTimer();
+  resetEraser();
   startTimer();
 
   updateScoreDisplay();

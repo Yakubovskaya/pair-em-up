@@ -32,4 +32,4 @@ const renderClassicGrid = (container) => {
   }
 };
 
-export { createClassicGrid, renderClassicGrid };
+export { createClassicGrid, renderClassicGrid, classicData };

@@ -235,6 +235,28 @@
   }
 }
 
+.assist-button {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.assist-button__counter {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 2px 8px;
+  min-width: 24px;
+  border-radius: 12px;
+  font-size: clamp(10px, 1.5vw, 12px);
+  font-weight: 700;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
 .settings-button {
   align-self: center;
   padding: 8px 16px;
