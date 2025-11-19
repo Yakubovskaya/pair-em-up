@@ -2,6 +2,7 @@ import { createClassicGrid, renderClassicGrid } from './render-classic-mode.js';
 import { resetScore, updateScoreDisplay } from './score.js';
 import { resetTimer, startTimer } from './timer.js';
 import { useEraser, resetEraser } from './eraser.js';
+import { addNumbers, resetAddNumbers } from './add-numbers.js';
 
 const onClassicButtonClick = () => {
   startClassicGame();
@@ -104,7 +105,17 @@ const startClassicGame = () => {
 
   const addNumbersButton = document.createElement('button');
   addNumbersButton.classList.add('assist-button', 'button');
+  addNumbersButton.setAttribute('data-tool', 'add-button');
   addNumbersButton.textContent = 'Add Numbers';
+
+  const addButtonCounter = document.createElement('span');
+  addButtonCounter.classList.add('assist-button__counter');
+  addButtonCounter.textContent = '10';
+
+  addNumbersButton.appendChild(addButtonCounter);
+  addNumbersButton.addEventListener('click', () => {
+    addNumbers();
+  });
 
   const shuffleButton = document.createElement('button');
   shuffleButton.classList.add('assist-button', 'button');
@@ -151,6 +162,7 @@ const startClassicGame = () => {
   resetScore();
   resetTimer();
   resetEraser();
+  resetAddNumbers();
   startTimer();
 
   updateScoreDisplay();

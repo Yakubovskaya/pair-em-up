@@ -11,6 +11,7 @@ let classicData = {
 };
 
 const createClassicGrid = () => {
+  classicData.rows = 3;
   classicData.grid = initializeGrid(classicData.rows, classicData.cols);
   const numbers = generateClassicNumbers();
   placeClassicNumbers(classicData.grid, numbers);

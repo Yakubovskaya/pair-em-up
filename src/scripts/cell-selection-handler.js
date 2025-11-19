@@ -2,6 +2,7 @@ import { calculatePoints, addPoints, checkWin } from './score';
 import { renderWinScreen } from './render-win-screen';
 import { getTime, stopTimer } from './timer';
 import { playSuccessSound, playFailSound } from './sound-effects.js';
+import { classicData } from './render-classic-mode.js';
 
 let selectedCells = [];
 
@@ -164,6 +165,7 @@ const removeMatchedCells = () => {
   selectedCells.forEach((cell) => {
     cell.element.textContent = '';
     cell.element.classList.add('game__grid-cell--empty');
+    classicData.grid[cell.y][cell.x] = 0;
   });
 };
 

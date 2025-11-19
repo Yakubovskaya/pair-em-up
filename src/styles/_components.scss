@@ -245,16 +245,17 @@
 
 .assist-button__counter {
   position: absolute;
-  right: 7px;
-  top: 7px;
-  padding: 2px 8px;
+  right: -10px;
+  top: -5px;
+  padding: 2px 6px;
   min-width: 24px;
   border-radius: 12px;
   font-size: clamp(10px, 1.5vw, 12px);
   font-weight: 700;
   text-align: center;
-  background: rgba(255, 255, 255, 0.2);
+  background: #ff9800;
   color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .settings-button {
