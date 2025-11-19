@@ -12,8 +12,10 @@ const updateAddButtonCounter = () => {
   const remaining = MAX_USES - addNumbersUsed;
   counterElement.textContent = remaining;
 
-  if (remaining === 0) {
+  if (remaining === 0 || classicData.rows >= MAX_ROWS) {
     addButton.disabled = true;
+  } else {
+    addButton.disabled = false;
   }
 };
 
@@ -42,10 +44,6 @@ const generateAddedNumbers = () => {
 
 const applyAddedNumbers = (newNumbers) => {
   if (newNumbers.length === 0) {
-    return;
-  }
-
-  if (classicData.rows >= MAX_ROWS) {
     return;
   }
 
@@ -88,12 +86,15 @@ const applyAddedNumbers = (newNumbers) => {
     if (newRow.length > 0) {
       classicData.grid.push(newRow);
       classicData.rows++;
+      if (classicData.rows >= MAX_ROWS) {
+        break;
+      }
     }
   }
 };
 
 const addNumbers = () => {
-  if (addNumbersUsed >= MAX_USES) {
+  if (addNumbersUsed >= MAX_USES || classicData.rows >= MAX_ROWS) {
     return;
   }
 
