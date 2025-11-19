@@ -3,6 +3,7 @@ import { resetScore, updateScoreDisplay } from './score.js';
 import { resetTimer, startTimer } from './timer.js';
 import { useEraser, resetEraser } from './eraser.js';
 import { addNumbers, resetAddNumbers } from './add-numbers.js';
+import { useShuffle, resetShuffle } from './shuffle.js';
 
 const onClassicButtonClick = () => {
   startClassicGame();
@@ -119,7 +120,17 @@ const startClassicGame = () => {
 
   const shuffleButton = document.createElement('button');
   shuffleButton.classList.add('assist-button', 'button');
+  shuffleButton.setAttribute('data-tool', 'shuffle');
   shuffleButton.textContent = 'Shuffle';
+
+  const shuffleCounter = document.createElement('span');
+  shuffleCounter.classList.add('assist-button__counter');
+  shuffleCounter.textContent = '5';
+
+  shuffleButton.appendChild(shuffleCounter);
+  shuffleButton.addEventListener('click', () => {
+    useShuffle();
+  });
 
   const eraserButton = document.createElement('button');
   eraserButton.classList.add('assist-button', 'button');
@@ -163,6 +174,7 @@ const startClassicGame = () => {
   resetTimer();
   resetEraser();
   resetAddNumbers();
+  resetShuffle();
   startTimer();
 
   updateScoreDisplay();
