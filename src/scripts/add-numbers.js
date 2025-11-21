@@ -1,23 +1,20 @@
 import { classicData } from './render-classic-mode.js';
 import { onCellClick } from './cell-selection-handler.js';
 import { domElements } from './dom-elements.js';
+import { updateCounter, enableButton } from './counter-utils.js';
 
 let addNumbersUsed = 0;
 const MAX_USES = 10;
 const MAX_ROWS = 50;
 
 const updateAddButtonCounter = () => {
-  const addButton = domElements.addButton;
-  const counterElement = domElements.addButtonCounter;
-
-  const remaining = MAX_USES - addNumbersUsed;
-  counterElement.textContent = remaining;
-
-  if (remaining === 0 || classicData.rows >= MAX_ROWS) {
-    addButton.disabled = true;
-  } else {
-    addButton.disabled = false;
-  }
+  updateCounter(
+    'addButton',
+    'addButtonCounter',
+    addNumbersUsed,
+    MAX_USES,
+    () => classicData.rows >= MAX_ROWS
+  );
 };
 
 const collectNumbers = () => {
@@ -112,12 +109,7 @@ const addNumbers = () => {
 const resetAddNumbers = () => {
   addNumbersUsed = 0;
   updateAddButtonCounter();
-
-  const addButton = domElements.addButton;
-
-  if (addButton) {
-    addButton.disabled = false;
-  }
+  enableButton('addButton');
 };
 
 export { addNumbers, resetAddNumbers };

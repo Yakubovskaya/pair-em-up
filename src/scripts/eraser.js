@@ -1,19 +1,12 @@
 import { classicData } from './render-classic-mode.js';
-import { domElements, getGridCells } from './dom-elements.js';
+import { getGridCells } from './dom-elements.js';
+import { updateCounter, enableButton } from './counter-utils.js';
 
 let eraserUsed = 0;
 const MAX_USES = 5;
 
 const updateEraserCounter = () => {
-  const eraserButton = domElements.eraserButton;
-  const counterElement = domElements.eraserButtonCounter;
-
-  const remaining = MAX_USES - eraserUsed;
-  counterElement.textContent = remaining;
-
-  if (remaining === 0) {
-    eraserButton.disabled = true;
-  }
+  updateCounter('eraserButton', 'eraserButtonCounter', eraserUsed, MAX_USES);
 };
 
 const useEraser = () => {
@@ -53,12 +46,7 @@ const useEraser = () => {
 const resetEraser = () => {
   eraserUsed = 0;
   updateEraserCounter();
-
-  const eraserButton = domElements.eraserButton;
-
-  if (eraserButton) {
-    eraserButton.disabled = false;
-  }
+  enableButton('eraserButton');
 };
 
 export { useEraser, resetEraser, updateEraserCounter };
