@@ -1,3 +1,5 @@
+import { domElements } from './dom-elements';
+
 let currentScore = 0;
 const maxScore = 100;
 
@@ -27,10 +29,10 @@ const addPoints = (points) => {
 };
 
 const updateScoreDisplay = () => {
-  const scoreElement = document.querySelector('.game__score-value');
-  scoreElement.textContent = currentScore;
+  const scoreElement = domElements.scoreValue;
+  const maxScoreElement = domElements.maxScoreValue;
 
-  const maxScoreElement = document.querySelector('.game__max-value');
+  scoreElement.textContent = currentScore;
   maxScoreElement.textContent = maxScore;
 };
 

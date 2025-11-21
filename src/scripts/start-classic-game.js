@@ -4,18 +4,19 @@ import { resetTimer, startTimer } from './timer.js';
 import { useEraser, resetEraser } from './eraser.js';
 import { addNumbers, resetAddNumbers } from './add-numbers.js';
 import { useShuffle, resetShuffle } from './shuffle.js';
+import { domElements, initDOMElements } from './dom-elements.js';
 
 const onClassicButtonClick = () => {
   startClassicGame();
 };
 
 const startClassicGame = () => {
-  const startScreen = document.querySelector('.start-screen');
+  const startScreen = domElements.startScreen;
   if (startScreen) {
     startScreen.classList.add('hidden');
   }
 
-  const existingGame = document.querySelector('.game');
+  const existingGame = domElements.gameContainer;
   if (existingGame) {
     existingGame.remove();
   }
@@ -169,6 +170,8 @@ const startClassicGame = () => {
   gameContainer.appendChild(gameContentWrapper);
 
   document.body.appendChild(gameContainer);
+
+  initDOMElements(gameContainer);
 
   resetScore();
   resetTimer();

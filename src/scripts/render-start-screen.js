@@ -1,4 +1,5 @@
 import { onClassicButtonClick } from './start-classic-game.js';
+import { initStartScreenElements } from './dom-elements.js';
 
 const renderStartScreen = () => {
   const container = document.createElement('div');
@@ -50,6 +51,8 @@ const renderStartScreen = () => {
 
   container.append(title, buttonsWrapper, extraButtonsWrapper, githubWrapper);
   document.body.append(container);
+
+  initStartScreenElements();
 };
 
 export { renderStartScreen };

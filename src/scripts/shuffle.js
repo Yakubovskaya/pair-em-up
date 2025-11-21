@@ -1,12 +1,13 @@
 import { classicData } from './render-classic-mode.js';
 import { onCellClick } from './cell-selection-handler.js';
+import { domElements, getGridCells } from './dom-elements.js';
 
 let shuffleUsed = 0;
 const MAX_USES = 5;
 
 const updateShuffleCounter = () => {
-  const shuffleButton = document.querySelector('[data-tool="shuffle"]');
-  const counterElement = shuffleButton.querySelector('.assist-button__counter');
+  const shuffleButton = domElements.shuffleButton;
+  const counterElement = domElements.shuffleButtonCounter;
 
   const remaining = MAX_USES - shuffleUsed;
   counterElement.textContent = remaining;
@@ -43,9 +44,7 @@ const collectNumbersWithPositions = () => {
 };
 
 const applyShuffledNumbers = (shuffledNumbers, positions) => {
-  const gridContainer = document.querySelector('.game__grid-container');
-  const cells = gridContainer.querySelectorAll('.game__grid-cell');
-
+  const cells = getGridCells();
   const cols = classicData.cols;
 
   for (let i = 0; i < positions.length; i++) {
@@ -91,7 +90,8 @@ const resetShuffle = () => {
   shuffleUsed = 0;
   updateShuffleCounter();
 
-  const shuffleButton = document.querySelector('[data-tool="shuffle"]');
+  const shuffleButton = domElements.shuffleButton;
+
   if (shuffleButton) {
     shuffleButton.disabled = false;
   }

@@ -1,3 +1,5 @@
+import { domElements } from './dom-elements';
+
 let seconds = 0;
 let interval = null;
 
@@ -11,14 +13,14 @@ const startTimer = () => {
 };
 
 const updateDisplay = () => {
-  const element = document.querySelector('.game__timer-value');
+  const timer = domElements.timerValue;
 
   const mins = Math.floor(seconds / 60);
   const secs = seconds - mins * 60;
 
-  element.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  timer.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 
-  return element;
+  return timer;
 };
 
 const stopTimer = () => {
@@ -35,8 +37,8 @@ const resetTimer = () => {
 };
 
 const getTime = () => {
-  const element = document.querySelector('.game__timer-value');
-  return element ? element.textContent : '00:00';
+  const timer = domElements.timerValue;
+  return timer ? timer.textContent : '00:00';
 };
 
 export { startTimer, stopTimer, resetTimer, getTime };

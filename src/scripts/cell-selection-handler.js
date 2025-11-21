@@ -3,6 +3,7 @@ import { renderWinScreen } from './render-win-screen';
 import { getTime, stopTimer } from './timer';
 import { playSuccessSound, playFailSound } from './sound-effects.js';
 import { classicData } from './render-classic-mode.js';
+import { getGridCells } from './dom-elements.js';
 
 let selectedCells = [];
 
@@ -40,7 +41,7 @@ const onCellClick = (cellElement, x, y, number) => {
 };
 
 const getCellByCoordinates = (container, x, y, cols) => {
-  const allCells = container.querySelectorAll('.game__grid-cell');
+  const allCells = getGridCells();
   const index = y * cols + x;
   return allCells[index] || null;
 };

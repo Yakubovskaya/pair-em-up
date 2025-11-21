@@ -1,11 +1,12 @@
 import { classicData } from './render-classic-mode.js';
+import { domElements, getGridCells } from './dom-elements.js';
 
 let eraserUsed = 0;
 const MAX_USES = 5;
 
 const updateEraserCounter = () => {
-  const eraserButton = document.querySelector('[data-tool="eraser"]');
-  const counterElement = eraserButton.querySelector('.assist-button__counter');
+  const eraserButton = domElements.eraserButton;
+  const counterElement = domElements.eraserButtonCounter;
 
   const remaining = MAX_USES - eraserUsed;
   counterElement.textContent = remaining;
@@ -20,10 +21,7 @@ const useEraser = () => {
     return;
   }
 
-  const gridContainer = document.querySelector('.game__grid-container');
-  if (!gridContainer) return;
-
-  const cells = gridContainer.querySelectorAll('.game__grid-cell');
+  const cells = getGridCells();
   const nonEmptyCells = [];
 
   for (let i = 0; i < cells.length; i++) {
@@ -56,7 +54,8 @@ const resetEraser = () => {
   eraserUsed = 0;
   updateEraserCounter();
 
-  const eraserButton = document.querySelector('[data-tool="eraser"]');
+  const eraserButton = domElements.eraserButton;
+
   if (eraserButton) {
     eraserButton.disabled = false;
   }

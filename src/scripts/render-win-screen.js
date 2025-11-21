@@ -1,8 +1,9 @@
 import { resetScore } from './score';
 import { startClassicGame } from './start-classic-game';
+import { domElements } from './dom-elements';
 
 const renderWinScreen = (maxScore, time) => {
-  const gameContainer = document.querySelector('.game');
+  const gameContainer = domElements.gameContainer;
   if (gameContainer) {
     gameContainer.classList.add('hidden');
   }
@@ -36,10 +37,8 @@ const renderWinScreen = (maxScore, time) => {
   menuButton.addEventListener('click', () => {
     winScreen.remove();
 
-    const startScreen = document.querySelector('.start-screen');
+    const startScreen = domElements.startScreen;
     startScreen.classList.remove('hidden');
-
-    const gameContainer = document.querySelector('.game');
     gameContainer.remove();
 
     resetScore();

@@ -1,13 +1,14 @@
 import { classicData } from './render-classic-mode.js';
 import { onCellClick } from './cell-selection-handler.js';
+import { domElements } from './dom-elements.js';
 
 let addNumbersUsed = 0;
 const MAX_USES = 10;
 const MAX_ROWS = 50;
 
 const updateAddButtonCounter = () => {
-  const addButton = document.querySelector('[data-tool="add-button"]');
-  const counterElement = addButton.querySelector('.assist-button__counter');
+  const addButton = domElements.addButton;
+  const counterElement = domElements.addButtonCounter;
 
   const remaining = MAX_USES - addNumbersUsed;
   counterElement.textContent = remaining;
@@ -46,8 +47,7 @@ const applyAddedNumbers = (newNumbers) => {
   if (newNumbers.length === 0) {
     return;
   }
-
-  const gridContainer = document.querySelector('.game__grid-container');
+  const gridContainer = domElements.gridContainer;
   let numberIndex = 0;
 
   while (numberIndex < newNumbers.length) {
@@ -113,7 +113,8 @@ const resetAddNumbers = () => {
   addNumbersUsed = 0;
   updateAddButtonCounter();
 
-  const addButton = document.querySelector('[data-tool="add-button"]');
+  const addButton = domElements.addButton;
+
   if (addButton) {
     addButton.disabled = false;
   }
