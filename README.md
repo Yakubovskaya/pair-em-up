@@ -6,6 +6,9 @@
 
 The game includes three modes, a complete scoring system, assist tools, persistent saving, and detailed interaction rules for working with the grid.
 
+## Deployment
+
+[Link](https://yakubovskaya.github.io/pair-em-up/)
 
 ## Table of Contents
 1. [Game Features](#game-features)
