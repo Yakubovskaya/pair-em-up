@@ -1,3 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #5ac8d6 0%, #0077a3 100%);
+  color: #ffffff;
+}
+
 .start-screen {
   display: flex;
   flex-direction: column;
@@ -36,15 +53,14 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-2px);
-  }
-  &:active {
-    transform: translateY(0);
-  }
+}
+.button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+.button:active {
+  transform: translateY(0);
 }
 
 .github-wrapper {
@@ -60,13 +76,12 @@
   font-weight: 700;
   transition: opacity 0.3s ease;
   color: #ffffff;
-
-  &:hover {
-    opacity: 0.8;
-  }
-  &:active {
-    color: #026285;
-  }
+}
+.github-link:hover {
+  opacity: 0.8;
+}
+.github-link:active {
+  color: #026285;
 }
 
 .game {
@@ -77,13 +92,15 @@
   padding: 20px;
   width: 100%;
   max-width: 1200px;
-
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+  .game {
     max-width: 100%;
     padding: 15px;
   }
-
-  @media (max-width: 480px) {
+}
+@media (max-width: 480px) {
+  .game {
     padding: 10px;
     gap: 15px;
   }
@@ -116,7 +133,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   color: #ffffff;
@@ -133,12 +150,14 @@
   justify-content: space-between;
   gap: 20px;
   width: 100%;
-
-  @media (max-width: 1024px) {
+}
+@media (max-width: 1024px) {
+  .game__content-wrapper {
     gap: 15px;
   }
-
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+  .game__content-wrapper {
     flex-direction: column;
     align-items: center;
     gap: 15px;
@@ -155,13 +174,15 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.2);
-
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+  .game__grid-container {
     max-width: 100%;
     width: 100%;
   }
-
-  @media (max-width: 480px) {
+}
+@media (max-width: 480px) {
+  .game__grid-container {
     padding: clamp(8px, 1.5vw, 15px);
     gap: 1px;
   }
@@ -179,25 +200,23 @@
   border-radius: 8px;
   color: #ffffff;
   cursor: pointer;
-
-  &--selected {
-    background: rgba(100, 200, 255, 0.6);
-    border-color: #71cdff;
-    transform: scale(1.1);
-  }
-
-  &--empty {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    cursor: default;
-  }
-
-  &--invalid {
-    background: #f44336b3;
-    border-color: #f44336;
-  }
-
-  @media (max-width: 480px) {
+}
+.game__grid-cell--selected {
+  background: rgba(100, 200, 255, 0.6);
+  border-color: #71cdff;
+  transform: scale(1.1);
+}
+.game__grid-cell--empty {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  cursor: default;
+}
+.game__grid-cell--invalid {
+  background: rgba(244, 67, 54, 0.7019607843);
+  border-color: #f44336;
+}
+@media (max-width: 480px) {
+  .game__grid-cell {
     border-radius: 5px;
   }
 }
@@ -208,12 +227,16 @@
   flex-direction: column;
   gap: 8px;
   min-width: 120px;
-
-  @media (max-width: 1024px) {
+}
+@media (max-width: 1024px) {
+  .game__control-buttons,
+  .game__assist-buttons {
     min-width: 100px;
   }
-
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
+  .game__control-buttons,
+  .game__assist-buttons {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -228,11 +251,11 @@
   width: 100%;
   font-size: clamp(12px, 2vw, 14px);
   white-space: nowrap;
-
-  &:disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
+}
+.control-button:disabled,
+.assist-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .assist-button {
@@ -297,7 +320,7 @@
 }
 
 .win-screen__time {
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   text-align: center;
   font-size: clamp(18px, 4vw, 24px);
   font-weight: 700;
@@ -308,4 +331,8 @@
   min-width: 200px;
   padding: 15px 30px;
   font-size: clamp(16px, 3vw, 20px);
+}
+
+.hidden {
+  display: none;
 }
